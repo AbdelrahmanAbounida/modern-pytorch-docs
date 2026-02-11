@@ -1,0 +1,568 @@
+---
+title: "Intermediate Learning Path"
+description: "Level up your PyTorch skills in 6-8 weeks - advanced architectures, mixed precision training, and model deployment"
+icon: "rocket"
+---
+
+Take your PyTorch skills to the next level with advanced architectures, performance optimization, and production deployment techniques.
+
+<Note>
+  **Prerequisites:** Complete the [Beginner Learning Path](/paths/beginner) or have equivalent experience with tensors, nn.Module, and training loops.
+</Note>
+
+## Learning Objectives
+
+By the end of this path, you will be able to:
+
+- Implement advanced neural network architectures (Transformers, ResNets)
+- Use mixed precision training for faster GPU performance
+- Deploy models to production environments
+- Optimize data pipelines for large-scale training
+- Apply transfer learning effectively
+
+---
+
+## Week 1-2: Advanced Architectures
+
+### Week 1: Recurrent Networks & Attention
+
+<Steps>
+  <Step title="Day 1-2: RNN Fundamentals">
+    Master sequence modeling with recurrent architectures.
+
+    **Topics Covered:**
+    - `nn.RNN`, `nn.LSTM`, `nn.GRU`
+    - Hidden state management
+    - Bidirectional networks
+    - Sequence padding and packing
+
+    <Card title="Recurrent Layers API" icon="repeat" href="/api/nn/recurrent-layers">
+      Complete RNN/LSTM/GRU reference
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: LSTM Deep Dive">
+    Understand long-term dependencies with LSTM.
+
+    **Topics Covered:**
+    - LSTM cell architecture
+    - Forget, input, and output gates
+    - `nn.LSTMCell` for custom implementations
+    - Gradient flow in LSTMs
+
+    <Accordion title="Practice: Sequence Prediction">
+      Implement a character-level language model:
+      1. Build an LSTM-based model
+      2. Train on text data
+      3. Generate new text
+      4. Compare with GRU variant
+    </Accordion>
+  </Step>
+
+  <Step title="Day 5-7: Attention Mechanisms">
+    Learn the foundation of modern NLP architectures.
+
+    **Topics Covered:**
+    - `nn.MultiheadAttention`
+    - Self-attention vs cross-attention
+    - Attention masks and padding
+    - `F.scaled_dot_product_attention`
+
+    <Card title="Transformer Layers API" icon="bolt-lightning" href="/api/nn/transformer-layers">
+      Attention and transformer reference
+    </Card>
+  </Step>
+</Steps>
+
+### Week 2: Transformer Architecture
+
+<Steps>
+  <Step title="Day 1-3: Transformer Components">
+    Build transformers from the ground up.
+
+    **Topics Covered:**
+    - `nn.TransformerEncoderLayer`
+    - `nn.TransformerDecoderLayer`
+    - Positional encoding strategies
+    - Layer normalization placement (pre-LN vs post-LN)
+
+    <CardGroup cols={2}>
+      <Card title="Transformer Layers" icon="layer-group" href="/api/nn/transformer-layers">
+        Transformer components reference
+      </Card>
+      <Card title="Normalization Layers" icon="sliders" href="/api/nn/normalization-layers">
+        LayerNorm and other normalizations
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Day 4-5: Full Transformer">
+    Assemble complete transformer models.
+
+    **Topics Covered:**
+    - `nn.Transformer` full model
+    - Encoder-only vs decoder-only architectures
+    - Memory-efficient attention
+    - Inference with KV caching
+
+    <Card title="Machine Translation Example" icon="language" href="/examples/nlp/machine-translation">
+      See transformers in action
+    </Card>
+  </Step>
+
+  <Step title="Day 6-7: Modern Variants">
+    Explore contemporary transformer designs.
+
+    **Topics Covered:**
+    - Flash Attention integration
+    - Rotary positional embeddings
+    - Grouped query attention
+    - Efficient attention variants
+
+    <Accordion title="Practice: Mini-GPT">
+      Build a decoder-only transformer:
+      1. Implement causal attention masking
+      2. Add positional embeddings
+      3. Train on small text corpus
+      4. Implement greedy/sampling decoding
+    </Accordion>
+  </Step>
+</Steps>
+
+### Weeks 1-2 Project
+
+<Accordion title="Project: Text Classification Transformer">
+  Build a production-ready text classifier:
+  1. Implement transformer encoder from scratch
+  2. Add classification head
+  3. Train on sentiment dataset
+  4. Compare with pretrained embeddings
+  5. Benchmark against RNN baseline
+  
+  **Deliverable:** Complete model with training script and evaluation metrics.
+</Accordion>
+
+---
+
+## Week 3-4: Advanced Training Techniques
+
+### Week 3: Mixed Precision & Memory Optimization
+
+<Steps>
+  <Step title="Day 1-2: Automatic Mixed Precision">
+    Speed up training with mixed precision.
+
+    **Topics Covered:**
+    - `torch.cuda.amp.autocast`
+    - `torch.cuda.amp.GradScaler`
+    - FP16 vs BF16 precision
+    - Loss scaling for stability
+
+    ```python
+    from torch.cuda.amp import autocast, GradScaler
+
+    scaler = GradScaler()
+
+    for data, target in dataloader:
+        optimizer.zero_grad()
+        
+        with autocast():
+            output = model(data)
+            loss = criterion(output, target)
+        
+        scaler.scale(loss).backward()
+        scaler.step(optimizer)
+        scaler.update()
+    ```
+
+    <Card title="Mixed Precision Tutorial" icon="gauge-high" href="/tutorials/intermediate/mixed-precision">
+      Complete AMP tutorial
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: Gradient Checkpointing">
+    Trade compute for memory to train larger models.
+
+    **Topics Covered:**
+    - `torch.utils.checkpoint.checkpoint`
+    - Segment-based checkpointing
+    - Memory vs compute tradeoffs
+    - When to use checkpointing
+
+    <Card title="Checkpoint Utilities" icon="memory" href="/api/utils/checkpoint">
+      Gradient checkpointing reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Memory Management">
+    Optimize GPU memory usage.
+
+    **Topics Covered:**
+    - `torch.cuda.empty_cache()`
+    - Memory profiling tools
+    - Gradient accumulation
+    - `torch.cuda.max_memory_allocated()`
+
+    <CardGroup cols={2}>
+      <Card title="Memory Management" icon="microchip" href="/api/device/memory-management">
+        CUDA memory reference
+      </Card>
+      <Card title="Memory Optimization Guide" icon="book" href="/guides/memory-optimization">
+        Practical memory tips
+      </Card>
+    </CardGroup>
+  </Step>
+</Steps>
+
+### Week 4: Multi-GPU Training
+
+<Steps>
+  <Step title="Day 1-2: DataParallel Basics">
+    Scale to multiple GPUs with minimal code changes.
+
+    **Topics Covered:**
+    - `nn.DataParallel` quick start
+    - Limitations of DataParallel
+    - Batch size considerations
+    - Load balancing issues
+
+    <Card title="Basic Distributed" icon="network-wired" href="/api/distributed/basic-distributed">
+      Distributed basics reference
+    </Card>
+  </Step>
+
+  <Step title="Day 3-5: DistributedDataParallel">
+    Production-grade multi-GPU training.
+
+    **Topics Covered:**
+    - `torch.nn.parallel.DistributedDataParallel`
+    - Process group initialization
+    - `torch.distributed.launch`
+    - `DistributedSampler` for data sharding
+
+    ```python
+    import torch.distributed as dist
+    from torch.nn.parallel import DistributedDataParallel as DDP
+
+    dist.init_process_group("nccl")
+    model = DDP(model.to(rank), device_ids=[rank])
+    ```
+
+    <Card title="DDP API" icon="server" href="/api/distributed/ddp">
+      DistributedDataParallel reference
+    </Card>
+  </Step>
+
+  <Step title="Day 6-7: Multi-Node Training">
+    Scale beyond a single machine.
+
+    **Topics Covered:**
+    - Multi-node setup with torchrun
+    - NCCL backend configuration
+    - Fault tolerance and elastic training
+    - Debugging distributed issues
+
+    <Card title="Distributed Training Tutorial" icon="diagram-project" href="/tutorials/intermediate/distributed-training">
+      Complete distributed training guide
+    </Card>
+  </Step>
+</Steps>
+
+### Weeks 3-4 Project
+
+<Accordion title="Project: Scalable Image Classifier">
+  Build a training pipeline that scales:
+  1. Implement DDP training for image classification
+  2. Add mixed precision training
+  3. Use gradient checkpointing for large models
+  4. Benchmark single-GPU vs multi-GPU performance
+  5. Add proper logging and checkpointing
+  
+  **Deliverable:** A training script that scales from 1 to 8 GPUs efficiently.
+</Accordion>
+
+---
+
+## Week 5-6: Transfer Learning & Fine-tuning
+
+### Week 5: Transfer Learning Fundamentals
+
+<Steps>
+  <Step title="Day 1-2: Pretrained Models">
+    Leverage existing knowledge from pretrained models.
+
+    **Topics Covered:**
+    - Loading pretrained weights
+    - `torchvision.models` pretrained options
+    - Feature extraction vs fine-tuning
+    - Handling different input sizes
+
+    <Card title="Transfer Learning Tutorial" icon="share-nodes" href="/tutorials/intermediate/transfer-learning">
+      Transfer learning guide
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: Feature Extraction">
+    Use pretrained models as feature extractors.
+
+    **Topics Covered:**
+    - Freezing pretrained layers
+    - Adding custom heads
+    - Intermediate feature extraction
+    - Layer selection strategies
+
+    ```python
+    # Freeze pretrained backbone
+    for param in model.backbone.parameters():
+        param.requires_grad = False
+    
+    # Only train the head
+    optimizer = torch.optim.Adam(model.head.parameters())
+    ```
+  </Step>
+
+  <Step title="Day 5-7: Fine-tuning Strategies">
+    Adapt pretrained models to new tasks.
+
+    **Topics Covered:**
+    - Layer-wise learning rates
+    - Gradual unfreezing
+    - Learning rate warmup
+    - Avoiding catastrophic forgetting
+
+    <Accordion title="Practice: Domain Adaptation">
+      Fine-tune an ImageNet model:
+      1. Load pretrained ResNet
+      2. Replace classification head
+      3. Implement layer-wise LR decay
+      4. Train on domain-specific data
+    </Accordion>
+  </Step>
+</Steps>
+
+### Week 6: Advanced Fine-tuning
+
+<Steps>
+  <Step title="Day 1-3: Custom Datasets for Transfer Learning">
+    Prepare your data for fine-tuning.
+
+    **Topics Covered:**
+    - Matching pretrained preprocessing
+    - Handling class imbalance
+    - Data augmentation for fine-tuning
+    - Validation strategies
+
+    <Card title="Custom Datasets Tutorial" icon="folder-open" href="/tutorials/intermediate/custom-datasets">
+      Dataset preparation guide
+    </Card>
+  </Step>
+
+  <Step title="Day 4-5: HuggingFace Integration">
+    Use state-of-the-art pretrained models.
+
+    **Topics Covered:**
+    - Loading HuggingFace models in PyTorch
+    - Tokenizers and preprocessing
+    - Fine-tuning transformers
+    - Model hub best practices
+
+    <Card title="HuggingFace Tools" icon="face-smile" href="/tools/huggingface">
+      HuggingFace ecosystem integration
+    </Card>
+  </Step>
+
+  <Step title="Day 6-7: Evaluation & Monitoring">
+    Properly evaluate fine-tuned models.
+
+    **Topics Covered:**
+    - Validation set selection
+    - Overfitting detection
+    - TensorBoard integration
+    - Model selection criteria
+
+    <Card title="TensorBoard Integration" icon="chart-bar" href="/api/utils/tensorboard">
+      TensorBoard reference
+    </Card>
+  </Step>
+</Steps>
+
+### Weeks 5-6 Project
+
+<Accordion title="Project: Medical Image Classifier">
+  Fine-tune for a specialized domain:
+  1. Select appropriate pretrained backbone
+  2. Implement data augmentation pipeline
+  3. Use layer-wise learning rates
+  4. Compare feature extraction vs fine-tuning
+  5. Create comprehensive evaluation report
+  
+  **Deliverable:** A fine-tuned model with >90% accuracy on target domain.
+</Accordion>
+
+---
+
+## Week 7-8: Model Deployment
+
+### Week 7: Model Export
+
+<Steps>
+  <Step title="Day 1-2: TorchScript Export">
+    Convert models to a deployable format.
+
+    **Topics Covered:**
+    - `torch.jit.script` for scripting
+    - `torch.jit.trace` for tracing
+    - Handling dynamic control flow
+    - Debugging TorchScript issues
+
+    <CardGroup cols={2}>
+      <Card title="TorchScript API" icon="file-code" href="/api/jit/torchscript">
+        TorchScript reference
+      </Card>
+      <Card title="Tracing API" icon="route" href="/api/jit/tracing">
+        Tracing reference
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Day 3-4: ONNX Export">
+    Export for cross-platform deployment.
+
+    **Topics Covered:**
+    - `torch.onnx.export`
+    - Dynamic axes configuration
+    - ONNX opset versions
+    - Validating exported models
+
+    <Card title="ONNX Export API" icon="file-export" href="/api/export/onnx">
+      ONNX export reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Model Optimization">
+    Optimize models for inference speed.
+
+    **Topics Covered:**
+    - `torch.jit.optimize_for_inference`
+    - `torch.jit.freeze`
+    - Operator fusion
+    - Inference benchmarking
+
+    <Card title="JIT Optimization" icon="bolt" href="/api/jit/optimization">
+      JIT optimization reference
+    </Card>
+  </Step>
+</Steps>
+
+### Week 8: Production Deployment
+
+<Steps>
+  <Step title="Day 1-2: Inference Serving">
+    Deploy models as services.
+
+    **Topics Covered:**
+    - TorchServe basics
+    - REST API endpoints
+    - Batching for throughput
+    - Health checks and monitoring
+
+    <Card title="Inference Serving Tools" icon="server" href="/tools/inference-serving">
+      Serving infrastructure guide
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: Quantization for Deployment">
+    Reduce model size and increase speed.
+
+    **Topics Covered:**
+    - Dynamic quantization: `torch.quantization.quantize_dynamic`
+    - Static quantization pipeline
+    - INT8 inference
+    - Accuracy vs speed tradeoffs
+
+    <Card title="Quantization API" icon="compress-arrows-alt" href="/api/quantization/quantization-api">
+      Quantization reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Mobile Deployment">
+    Deploy models to edge devices.
+
+    **Topics Covered:**
+    - PyTorch Mobile optimization
+    - Model size reduction
+    - iOS and Android integration
+    - `optimize_for_mobile`
+
+    <CardGroup cols={2}>
+      <Card title="Mobile Optimizer" icon="mobile" href="/api/utils/mobile-optimizer">
+        Mobile optimization reference
+      </Card>
+      <Card title="Model Deployment Tutorial" icon="cloud-arrow-up" href="/tutorials/intermediate/model-deployment">
+        Complete deployment guide
+      </Card>
+    </CardGroup>
+  </Step>
+</Steps>
+
+### Weeks 7-8 Project
+
+<Accordion title="Project: End-to-End Deployment Pipeline">
+  Deploy a model to production:
+  1. Export trained model to TorchScript and ONNX
+  2. Apply quantization for speed
+  3. Set up TorchServe or FastAPI endpoint
+  4. Implement input validation and error handling
+  5. Create load testing script
+  6. Document API and deployment process
+  
+  **Deliverable:** A deployed model with REST API, achieving <50ms latency.
+</Accordion>
+
+---
+
+## Self-Assessment Checklist
+
+<Tabs>
+  <Tab title="Architectures">
+    - [ ] I can implement LSTM networks for sequences
+    - [ ] I understand multi-head attention mechanics
+    - [ ] I can build a transformer from scratch
+    - [ ] I know when to use different architectures
+    - [ ] I can debug shape mismatches in complex models
+  </Tab>
+  <Tab title="Training">
+    - [ ] I can implement mixed precision training
+    - [ ] I understand gradient checkpointing tradeoffs
+    - [ ] I can set up DDP multi-GPU training
+    - [ ] I can configure multi-node training
+    - [ ] I can debug distributed training issues
+  </Tab>
+  <Tab title="Transfer Learning">
+    - [ ] I can fine-tune pretrained models effectively
+    - [ ] I understand layer-wise learning rates
+    - [ ] I can choose between feature extraction and fine-tuning
+    - [ ] I can adapt models to new domains
+    - [ ] I can evaluate fine-tuned model quality
+  </Tab>
+  <Tab title="Deployment">
+    - [ ] I can export models to TorchScript
+    - [ ] I can export models to ONNX format
+    - [ ] I can apply quantization for inference
+    - [ ] I can set up model serving infrastructure
+    - [ ] I can optimize models for mobile deployment
+  </Tab>
+</Tabs>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Advanced Path" icon="arrow-right" href="/paths/advanced">
+    Ready for research-level skills? Explore torch.compile, FSDP, and custom autograd.
+  </Card>
+  <Card title="Performance Tuning Guide" icon="gauge" href="/guides/performance-tuning">
+    Deep dive into optimization techniques.
+  </Card>
+</CardGroup>

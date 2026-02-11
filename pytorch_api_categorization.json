@@ -1,0 +1,561 @@
+{
+  "pytorch_api_categories": {
+    "core_tensor_operations": {
+      "description": "Fundamental tensor creation, manipulation, and operations",
+      "subcategories": {
+        "tensor_creation": [
+          "torch.tensor",
+          "torch.zeros",
+          "torch.ones",
+          "torch.arange",
+          "torch.linspace",
+          "torch.eye",
+          "torch.empty",
+          "torch.full",
+          "torch.sparse_coo_tensor",
+          "torch.sparse_csr_tensor",
+          "torch.from_numpy",
+          "torch.as_tensor",
+          "torch.asarray"
+        ],
+        "tensor_manipulation": [
+          "torch.cat",
+          "torch.stack",
+          "torch.split",
+          "torch.chunk",
+          "torch.reshape",
+          "torch.transpose",
+          "torch.permute",
+          "torch.squeeze",
+          "torch.unsqueeze",
+          "torch.flatten",
+          "torch.view",
+          "torch.narrow",
+          "torch.select",
+          "torch.gather",
+          "torch.scatter"
+        ],
+        "indexing_slicing": [
+          "torch.index_select",
+          "torch.masked_select",
+          "torch.take",
+          "torch.take_along_dim",
+          "torch.nonzero",
+          "torch.where",
+          "torch.argwhere"
+        ]
+      }
+    },
+    "mathematical_operations": {
+      "description": "Mathematical and statistical operations on tensors",
+      "subcategories": {
+        "pointwise_ops": [
+          "torch.add",
+          "torch.sub",
+          "torch.mul",
+          "torch.div",
+          "torch.pow",
+          "torch.exp",
+          "torch.log",
+          "torch.sqrt",
+          "torch.abs",
+          "torch.sin",
+          "torch.cos",
+          "torch.tan",
+          "torch.sigmoid",
+          "torch.tanh"
+        ],
+        "reduction_ops": [
+          "torch.sum",
+          "torch.mean",
+          "torch.std",
+          "torch.var",
+          "torch.max",
+          "torch.min",
+          "torch.argmax",
+          "torch.argmin",
+          "torch.prod",
+          "torch.median",
+          "torch.mode"
+        ],
+        "comparison_ops": [
+          "torch.eq",
+          "torch.ne",
+          "torch.gt",
+          "torch.ge",
+          "torch.lt",
+          "torch.le",
+          "torch.equal",
+          "torch.allclose",
+          "torch.isclose"
+        ],
+        "logical_ops": [
+          "torch.logical_and",
+          "torch.logical_or",
+          "torch.logical_not",
+          "torch.logical_xor"
+        ],
+        "bitwise_ops": [
+          "torch.bitwise_and",
+          "torch.bitwise_or",
+          "torch.bitwise_xor",
+          "torch.bitwise_not",
+          "torch.bitwise_left_shift",
+          "torch.bitwise_right_shift"
+        ]
+      }
+    },
+    "linear_algebra": {
+      "description": "Linear algebra operations",
+      "subcategories": {
+        "matrix_operations": [
+          "torch.mm",
+          "torch.matmul",
+          "torch.bmm",
+          "torch.addmm",
+          "torch.addbmm",
+          "torch.baddbmm",
+          "torch.dot",
+          "torch.vdot",
+          "torch.outer",
+          "torch.inner"
+        ],
+        "decompositions": [
+          "torch.linalg.svd",
+          "torch.linalg.qr",
+          "torch.linalg.lu",
+          "torch.linalg.eig",
+          "torch.linalg.eigh",
+          "torch.linalg.cholesky"
+        ],
+        "matrix_properties": [
+          "torch.linalg.det",
+          "torch.linalg.slogdet",
+          "torch.linalg.norm",
+          "torch.linalg.matrix_rank",
+          "torch.linalg.cond",
+          "torch.trace"
+        ],
+        "solving_systems": [
+          "torch.linalg.solve",
+          "torch.linalg.lstsq",
+          "torch.linalg.inv",
+          "torch.linalg.pinv"
+        ]
+      }
+    },
+    "neural_network_modules": {
+      "description": "Neural network building blocks",
+      "subcategories": {
+        "containers": [
+          "torch.nn.Module",
+          "torch.nn.Sequential",
+          "torch.nn.ModuleList",
+          "torch.nn.ModuleDict",
+          "torch.nn.ParameterList",
+          "torch.nn.ParameterDict"
+        ],
+        "convolution_layers": [
+          "torch.nn.Conv1d",
+          "torch.nn.Conv2d",
+          "torch.nn.Conv3d",
+          "torch.nn.ConvTranspose1d",
+          "torch.nn.ConvTranspose2d",
+          "torch.nn.ConvTranspose3d"
+        ],
+        "pooling_layers": [
+          "torch.nn.MaxPool1d",
+          "torch.nn.MaxPool2d",
+          "torch.nn.MaxPool3d",
+          "torch.nn.AvgPool1d",
+          "torch.nn.AvgPool2d",
+          "torch.nn.AvgPool3d",
+          "torch.nn.AdaptiveMaxPool1d",
+          "torch.nn.AdaptiveAvgPool2d"
+        ],
+        "activation_functions": [
+          "torch.nn.ReLU",
+          "torch.nn.LeakyReLU",
+          "torch.nn.ELU",
+          "torch.nn.GELU",
+          "torch.nn.Sigmoid",
+          "torch.nn.Tanh",
+          "torch.nn.Softmax",
+          "torch.nn.LogSoftmax",
+          "torch.nn.Softplus",
+          "torch.nn.SiLU",
+          "torch.nn.Mish"
+        ],
+        "normalization_layers": [
+          "torch.nn.BatchNorm1d",
+          "torch.nn.BatchNorm2d",
+          "torch.nn.BatchNorm3d",
+          "torch.nn.LayerNorm",
+          "torch.nn.GroupNorm",
+          "torch.nn.InstanceNorm1d",
+          "torch.nn.InstanceNorm2d",
+          "torch.nn.RMSNorm"
+        ],
+        "recurrent_layers": [
+          "torch.nn.RNN",
+          "torch.nn.LSTM",
+          "torch.nn.GRU",
+          "torch.nn.RNNCell",
+          "torch.nn.LSTMCell",
+          "torch.nn.GRUCell"
+        ],
+        "transformer_layers": [
+          "torch.nn.Transformer",
+          "torch.nn.TransformerEncoder",
+          "torch.nn.TransformerDecoder",
+          "torch.nn.TransformerEncoderLayer",
+          "torch.nn.TransformerDecoderLayer",
+          "torch.nn.MultiheadAttention"
+        ],
+        "linear_layers": [
+          "torch.nn.Linear",
+          "torch.nn.Bilinear",
+          "torch.nn.Identity"
+        ],
+        "dropout_layers": [
+          "torch.nn.Dropout",
+          "torch.nn.Dropout1d",
+          "torch.nn.Dropout2d",
+          "torch.nn.Dropout3d",
+          "torch.nn.AlphaDropout"
+        ],
+        "embedding_layers": ["torch.nn.Embedding", "torch.nn.EmbeddingBag"],
+        "padding_layers": [
+          "torch.nn.ReflectionPad1d",
+          "torch.nn.ReflectionPad2d",
+          "torch.nn.ReplicationPad1d",
+          "torch.nn.ZeroPad2d",
+          "torch.nn.ConstantPad2d"
+        ]
+      }
+    },
+    "loss_functions": {
+      "description": "Loss functions for training neural networks",
+      "subcategories": {
+        "regression_losses": [
+          "torch.nn.MSELoss",
+          "torch.nn.L1Loss",
+          "torch.nn.SmoothL1Loss",
+          "torch.nn.HuberLoss"
+        ],
+        "classification_losses": [
+          "torch.nn.CrossEntropyLoss",
+          "torch.nn.NLLLoss",
+          "torch.nn.BCELoss",
+          "torch.nn.BCEWithLogitsLoss",
+          "torch.nn.MultiMarginLoss"
+        ],
+        "embedding_losses": [
+          "torch.nn.CosineEmbeddingLoss",
+          "torch.nn.TripletMarginLoss",
+          "torch.nn.MarginRankingLoss"
+        ],
+        "other_losses": [
+          "torch.nn.KLDivLoss",
+          "torch.nn.PoissonNLLLoss",
+          "torch.nn.GaussianNLLLoss",
+          "torch.nn.CTCLoss"
+        ]
+      }
+    },
+    "optimization": {
+      "description": "Optimization algorithms and learning rate schedulers",
+      "subcategories": {
+        "optimizers": [
+          "torch.optim.SGD",
+          "torch.optim.Adam",
+          "torch.optim.AdamW",
+          "torch.optim.RMSprop",
+          "torch.optim.Adagrad",
+          "torch.optim.Adadelta",
+          "torch.optim.Adamax",
+          "torch.optim.NAdam",
+          "torch.optim.RAdam",
+          "torch.optim.LBFGS",
+          "torch.optim.Rprop"
+        ],
+        "lr_schedulers": [
+          "torch.optim.lr_scheduler.StepLR",
+          "torch.optim.lr_scheduler.MultiStepLR",
+          "torch.optim.lr_scheduler.ExponentialLR",
+          "torch.optim.lr_scheduler.CosineAnnealingLR",
+          "torch.optim.lr_scheduler.ReduceLROnPlateau",
+          "torch.optim.lr_scheduler.CyclicLR",
+          "torch.optim.lr_scheduler.OneCycleLR",
+          "torch.optim.lr_scheduler.LinearLR",
+          "torch.optim.lr_scheduler.PolynomialLR"
+        ]
+      }
+    },
+    "autograd": {
+      "description": "Automatic differentiation utilities",
+      "subcategories": {
+        "gradient_computation": [
+          "torch.autograd.backward",
+          "torch.autograd.grad",
+          "torch.Tensor.backward",
+          "torch.Tensor.retain_grad"
+        ],
+        "gradient_contexts": [
+          "torch.no_grad",
+          "torch.enable_grad",
+          "torch.set_grad_enabled",
+          "torch.inference_mode"
+        ],
+        "custom_functions": [
+          "torch.autograd.Function",
+          "torch.autograd.function.FunctionCtx"
+        ],
+        "functional_api": [
+          "torch.autograd.functional.jacobian",
+          "torch.autograd.functional.hessian",
+          "torch.autograd.functional.vjp",
+          "torch.autograd.functional.jvp"
+        ]
+      }
+    },
+    "data_utilities": {
+      "description": "Data loading and processing utilities",
+      "subcategories": {
+        "datasets": [
+          "torch.utils.data.Dataset",
+          "torch.utils.data.TensorDataset",
+          "torch.utils.data.ConcatDataset",
+          "torch.utils.data.Subset"
+        ],
+        "data_loading": [
+          "torch.utils.data.DataLoader",
+          "torch.utils.data.Sampler",
+          "torch.utils.data.BatchSampler",
+          "torch.utils.data.RandomSampler",
+          "torch.utils.data.SequentialSampler"
+        ]
+      }
+    },
+    "distributed": {
+      "description": "Distributed training utilities",
+      "subcategories": {
+        "basic_distributed": [
+          "torch.distributed.init_process_group",
+          "torch.distributed.all_reduce",
+          "torch.distributed.all_gather",
+          "torch.distributed.broadcast",
+          "torch.distributed.reduce",
+          "torch.distributed.barrier"
+        ],
+        "ddp": [
+          "torch.nn.parallel.DistributedDataParallel",
+          "torch.nn.parallel.DataParallel"
+        ],
+        "fsdp": [
+          "torch.distributed.fsdp.FullyShardedDataParallel",
+          "torch.distributed.fsdp.fully_shard"
+        ],
+        "rpc": [
+          "torch.distributed.rpc.init_rpc",
+          "torch.distributed.rpc.rpc_sync",
+          "torch.distributed.rpc.rpc_async"
+        ]
+      }
+    },
+    "device_management": {
+      "description": "Device and hardware acceleration management",
+      "subcategories": {
+        "cuda": [
+          "torch.cuda.is_available",
+          "torch.cuda.device_count",
+          "torch.cuda.current_device",
+          "torch.cuda.set_device",
+          "torch.cuda.synchronize",
+          "torch.cuda.Stream",
+          "torch.cuda.Event"
+        ],
+        "mps": [
+          "torch.mps.is_available",
+          "torch.mps.synchronize",
+          "torch.mps.empty_cache"
+        ],
+        "xpu": [
+          "torch.xpu.is_available",
+          "torch.xpu.device_count",
+          "torch.xpu.synchronize"
+        ],
+        "memory_management": [
+          "torch.cuda.memory_allocated",
+          "torch.cuda.memory_reserved",
+          "torch.cuda.empty_cache",
+          "torch.cuda.memory_summary"
+        ]
+      }
+    },
+    "serialization": {
+      "description": "Model and tensor serialization",
+      "subcategories": {
+        "save_load": [
+          "torch.save",
+          "torch.load",
+          "torch.jit.save",
+          "torch.jit.load"
+        ]
+      }
+    },
+    "random": {
+      "description": "Random number generation",
+      "subcategories": {
+        "random_sampling": [
+          "torch.rand",
+          "torch.randn",
+          "torch.randint",
+          "torch.randperm",
+          "torch.bernoulli",
+          "torch.multinomial",
+          "torch.normal",
+          "torch.poisson"
+        ],
+        "random_seed": [
+          "torch.manual_seed",
+          "torch.seed",
+          "torch.get_rng_state",
+          "torch.set_rng_state",
+          "torch.initial_seed"
+        ]
+      }
+    },
+    "signal_processing": {
+      "description": "Signal processing and FFT operations",
+      "subcategories": {
+        "fft": [
+          "torch.fft.fft",
+          "torch.fft.ifft",
+          "torch.fft.fft2",
+          "torch.fft.ifft2",
+          "torch.fft.fftn",
+          "torch.fft.ifftn",
+          "torch.fft.rfft",
+          "torch.fft.irfft"
+        ],
+        "spectral": ["torch.stft", "torch.istft"],
+        "windows": [
+          "torch.signal.windows.hann",
+          "torch.signal.windows.hamming",
+          "torch.signal.windows.blackman",
+          "torch.signal.windows.bartlett"
+        ]
+      }
+    },
+    "jit_compilation": {
+      "description": "JIT compilation and scripting",
+      "subcategories": {
+        "torchscript": [
+          "torch.jit.script",
+          "torch.jit.trace",
+          "torch.jit.ScriptModule",
+          "torch.jit.freeze",
+          "torch.jit.optimize_for_inference"
+        ]
+      }
+    },
+    "quantization": {
+      "description": "Model quantization utilities",
+      "subcategories": {
+        "quantization_api": [
+          "torch.quantization.quantize",
+          "torch.quantization.quantize_dynamic",
+          "torch.quantization.prepare",
+          "torch.quantization.convert"
+        ],
+        "observers": [
+          "torch.quantization.MinMaxObserver",
+          "torch.quantization.HistogramObserver",
+          "torch.quantization.MovingAverageMinMaxObserver"
+        ]
+      }
+    },
+    "profiling_debugging": {
+      "description": "Profiling and debugging tools",
+      "subcategories": {
+        "profiler": [
+          "torch.profiler.profile",
+          "torch.profiler.record_function",
+          "torch.profiler.ProfilerActivity"
+        ],
+        "debugging": [
+          "torch.autograd.detect_anomaly",
+          "torch.autograd.set_detect_anomaly",
+          "torch.autograd.gradcheck",
+          "torch.autograd.gradgradcheck"
+        ]
+      }
+    },
+    "compiler": {
+      "description": "PyTorch 2.0 compiler and optimization",
+      "subcategories": {
+        "torch_compile": [
+          "torch.compile",
+          "torch.compiler.reset",
+          "torch.compiler.disable"
+        ]
+      }
+    },
+    "export": {
+      "description": "Model export utilities",
+      "subcategories": {
+        "torch_export": ["torch.export.export", "torch.export.ExportedProgram"],
+        "onnx": ["torch.onnx.export", "torch.onnx.dynamo_export"]
+      }
+    },
+    "functional_transforms": {
+      "description": "Functional transformations and vmap",
+      "subcategories": {
+        "torch_func": [
+          "torch.func.vmap",
+          "torch.func.grad",
+          "torch.func.jacrev",
+          "torch.func.jacfwd",
+          "torch.func.functionalize"
+        ]
+      }
+    },
+    "sparse_tensors": {
+      "description": "Sparse tensor operations",
+      "subcategories": {
+        "sparse_creation": [
+          "torch.sparse_coo_tensor",
+          "torch.sparse_csr_tensor",
+          "torch.sparse_csc_tensor"
+        ],
+        "sparse_ops": [
+          "torch.sparse.sum",
+          "torch.sparse.mm",
+          "torch.sparse.addmm"
+        ]
+      }
+    },
+    "nested_tensors": {
+      "description": "Nested tensor operations",
+      "subcategories": {
+        "nested": [
+          "torch.nested.nested_tensor",
+          "torch.nested.to_padded_tensor"
+        ]
+      }
+    },
+    "special_functions": {
+      "description": "Special mathematical functions",
+      "subcategories": {
+        "special": [
+          "torch.special.erf",
+          "torch.special.erfc",
+          "torch.special.gamma",
+          "torch.special.gammaln",
+          "torch.special.digamma"
+        ]
+      }
+    }
+  }
+}

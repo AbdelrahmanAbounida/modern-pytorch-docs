@@ -1,0 +1,450 @@
+---
+title: "Beginner Learning Path"
+description: "Master PyTorch fundamentals in 4-6 weeks - from tensors to training your first neural network"
+icon: "seedling"
+---
+
+Build a solid foundation in PyTorch with this structured 4-6 week curriculum. You'll learn tensor operations, neural network basics, and how to train models from scratch.
+
+## Learning Objectives
+
+By the end of this path, you will be able to:
+
+- Create and manipulate tensors using PyTorch's core operations
+- Understand automatic differentiation and computational graphs
+- Build neural networks using `nn.Module`
+- Implement complete training loops with optimizers and loss functions
+- Load and preprocess data efficiently
+
+---
+
+## Week 1: Tensor Fundamentals
+
+<Steps>
+  <Step title="Day 1-2: Tensor Creation">
+    Learn the building blocks of PyTorch - creating tensors in multiple ways.
+
+    **Topics Covered:**
+    - `torch.tensor`, `torch.zeros`, `torch.ones`
+    - `torch.arange`, `torch.linspace`, `torch.eye`
+    - `torch.from_numpy` and NumPy interoperability
+    - Device placement (CPU vs GPU)
+
+    <CardGroup cols={2}>
+      <Card title="Tensor Creation API" icon="cube" href="/api/core/tensor-creation">
+        Complete reference for tensor creation functions
+      </Card>
+      <Card title="Tensor Basics Tutorial" icon="graduation-cap" href="/tutorials/beginner/tensor-basics">
+        Interactive tutorial with examples
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Day 3-4: Tensor Manipulation">
+    Master reshaping, stacking, and transforming tensors.
+
+    **Topics Covered:**
+    - `torch.reshape`, `torch.view`, `torch.transpose`
+    - `torch.cat`, `torch.stack`, `torch.split`
+    - `torch.squeeze`, `torch.unsqueeze`, `torch.flatten`
+    - `torch.permute` for dimension reordering
+
+    <Card title="Tensor Manipulation API" icon="arrows-rotate" href="/api/core/tensor-manipulation">
+      Full reference for manipulation operations
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Indexing & Slicing">
+    Learn advanced indexing techniques for efficient data access.
+
+    **Topics Covered:**
+    - Basic and advanced indexing
+    - Boolean masking with `torch.where`
+    - `torch.index_select`, `torch.gather`, `torch.scatter`
+    - `torch.masked_select`, `torch.nonzero`
+
+    <Card title="Indexing & Slicing API" icon="scissors" href="/api/core/indexing-slicing">
+      Complete indexing reference
+    </Card>
+  </Step>
+</Steps>
+
+### Week 1 Practice Project
+
+<Accordion title="Project: Tensor Playground">
+  Build a tensor utility library that:
+  1. Creates tensors with different initialization patterns
+  2. Implements custom reshaping functions
+  3. Performs batch operations using advanced indexing
+  
+  **Deliverable:** A Python module with at least 5 utility functions for tensor operations.
+</Accordion>
+
+---
+
+## Week 2: Mathematical Operations
+
+<Steps>
+  <Step title="Day 1-2: Pointwise Operations">
+    Learn element-wise mathematical operations.
+
+    **Topics Covered:**
+    - Arithmetic: `add`, `sub`, `mul`, `div`, `pow`
+    - Trigonometric: `sin`, `cos`, `tan`, `atan2`
+    - Exponential: `exp`, `log`, `sqrt`
+    - Activations: `sigmoid`, `tanh`, `relu`
+
+    <Card title="Pointwise Operations API" icon="calculator" href="/api/math/pointwise-ops">
+      Full pointwise operations reference
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: Reduction Operations">
+    Aggregate tensor values with reduction operations.
+
+    **Topics Covered:**
+    - `torch.sum`, `torch.mean`, `torch.std`, `torch.var`
+    - `torch.max`, `torch.min`, `torch.argmax`, `torch.argmin`
+    - `torch.prod`, `torch.median`, `torch.mode`
+    - Reduction along specific dimensions
+
+    <Card title="Reduction Operations API" icon="compress" href="/api/math/reduction-ops">
+      Complete reduction operations reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Comparison & Broadcasting">
+    Master comparison operations and broadcasting rules.
+
+    **Topics Covered:**
+    - Comparison: `eq`, `ne`, `gt`, `ge`, `lt`, `le`
+    - Logical: `logical_and`, `logical_or`, `logical_not`
+    - Broadcasting rules and best practices
+    - Memory-efficient operations
+
+    <CardGroup cols={2}>
+      <Card title="Comparison Operations" icon="scale-balanced" href="/api/math/comparison-ops">
+        Comparison operations reference
+      </Card>
+      <Card title="Logical Operations" icon="circle-nodes" href="/api/math/logical-ops">
+        Logical operations reference
+      </Card>
+    </CardGroup>
+  </Step>
+</Steps>
+
+### Week 2 Practice Project
+
+<Accordion title="Project: Statistics Calculator">
+  Build a statistics module that:
+  1. Computes descriptive statistics (mean, std, percentiles)
+  2. Performs z-score normalization
+  3. Calculates correlation matrices
+  
+  **Deliverable:** A class that processes batched data with GPU support.
+</Accordion>
+
+---
+
+## Week 3: Autograd & Gradients
+
+<Steps>
+  <Step title="Day 1-2: Understanding Autograd">
+    Learn how PyTorch computes gradients automatically.
+
+    **Topics Covered:**
+    - `requires_grad` attribute and gradient tracking
+    - Computational graphs and dynamic graph construction
+    - `tensor.backward()` and gradient accumulation
+    - Accessing gradients with `tensor.grad`
+
+    <Card title="Autograd Tutorial" icon="wand-magic-sparkles" href="/tutorials/beginner/autograd-tutorial">
+      Interactive autograd tutorial
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: Gradient Contexts">
+    Control gradient computation with context managers.
+
+    **Topics Covered:**
+    - `torch.no_grad()` for inference
+    - `torch.enable_grad()` for nested contexts
+    - `torch.inference_mode()` for production
+    - When to use each context
+
+    <Card title="Gradient Contexts API" icon="toggle-on" href="/api/autograd/gradient-contexts">
+      Gradient context reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Practical Gradient Usage">
+    Apply gradients in real-world scenarios.
+
+    **Topics Covered:**
+    - Gradient clipping and normalization
+    - Detaching tensors from computation graph
+    - Memory management with gradients
+    - Debugging gradient issues
+
+    <Card title="Gradient Computation API" icon="chart-line" href="/api/autograd/gradient-computation">
+      Gradient computation reference
+    </Card>
+  </Step>
+</Steps>
+
+### Week 3 Practice Project
+
+<Accordion title="Project: Manual Linear Regression">
+  Implement linear regression from scratch:
+  1. Define parameters with `requires_grad=True`
+  2. Compute forward pass and loss manually
+  3. Backpropagate and update weights
+  4. Compare with analytical solution
+  
+  **Deliverable:** A working gradient descent implementation without using `nn.Module`.
+</Accordion>
+
+---
+
+## Week 4: Neural Network Basics
+
+<Steps>
+  <Step title="Day 1-2: nn.Module Architecture">
+    Understand the foundation of PyTorch neural networks.
+
+    **Topics Covered:**
+    - `torch.nn.Module` class structure
+    - `__init__` and `forward` methods
+    - `nn.Parameter` for learnable weights
+    - Module registration and nesting
+
+    <Card title="NN Containers API" icon="boxes-stacked" href="/api/nn/containers">
+      Neural network containers reference
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: Core Layers">
+    Build networks with fundamental layer types.
+
+    **Topics Covered:**
+    - `nn.Linear` for fully connected layers
+    - `nn.Conv2d` for convolutional layers
+    - `nn.MaxPool2d`, `nn.AvgPool2d` for pooling
+    - Layer initialization strategies
+
+    <CardGroup cols={2}>
+      <Card title="Linear Layers" icon="line" href="/api/nn/linear-layers">
+        Linear layer reference
+      </Card>
+      <Card title="Convolution Layers" icon="grid" href="/api/nn/convolution-layers">
+        Convolution layer reference
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Day 5-7: Activation Functions">
+    Add non-linearity to your networks.
+
+    **Topics Covered:**
+    - `nn.ReLU`, `nn.LeakyReLU`, `nn.ELU`
+    - `nn.Sigmoid`, `nn.Tanh`
+    - `nn.Softmax`, `nn.LogSoftmax`
+    - Choosing the right activation
+
+    <Card title="Activation Functions API" icon="bolt" href="/api/nn/activation-functions">
+      Activation functions reference
+    </Card>
+  </Step>
+</Steps>
+
+### Week 4 Practice Project
+
+<Accordion title="Project: Multi-Layer Perceptron">
+  Build an MLP classifier:
+  1. Create a 3+ layer network with `nn.Module`
+  2. Use appropriate activations between layers
+  3. Implement `forward()` method
+  4. Test on synthetic data
+  
+  **Deliverable:** A reusable MLP class with configurable architecture.
+</Accordion>
+
+---
+
+## Week 5: Training Loops
+
+<Steps>
+  <Step title="Day 1-2: Loss Functions">
+    Choose and use appropriate loss functions.
+
+    **Topics Covered:**
+    - Regression: `nn.MSELoss`, `nn.L1Loss`, `nn.SmoothL1Loss`
+    - Classification: `nn.CrossEntropyLoss`, `nn.BCELoss`
+    - Understanding loss reduction modes
+    - Custom loss functions
+
+    <CardGroup cols={2}>
+      <Card title="Regression Losses" icon="chart-scatter" href="/api/loss/regression-losses">
+        Regression loss reference
+      </Card>
+      <Card title="Classification Losses" icon="tags" href="/api/loss/classification-losses">
+        Classification loss reference
+      </Card>
+    </CardGroup>
+  </Step>
+
+  <Step title="Day 3-4: Optimizers">
+    Update model parameters efficiently.
+
+    **Topics Covered:**
+    - `torch.optim.SGD` with momentum
+    - `torch.optim.Adam`, `torch.optim.AdamW`
+    - Parameter groups and learning rates
+    - `optimizer.zero_grad()` and `optimizer.step()`
+
+    <Card title="Optimizers API" icon="gears" href="/api/optim/optimizers">
+      Optimizers reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Complete Training Loop">
+    Put everything together in a training pipeline.
+
+    **Topics Covered:**
+    - Training and validation loops
+    - Batch processing
+    - Epoch management
+    - Logging and monitoring progress
+
+    <Card title="Training Classifier Tutorial" icon="brain" href="/tutorials/beginner/training-classifier">
+      Complete training tutorial
+    </Card>
+  </Step>
+</Steps>
+
+### Week 5 Practice Project
+
+<Accordion title="Project: MNIST Classifier">
+  Train a digit classifier:
+  1. Load MNIST dataset
+  2. Build a CNN or MLP architecture
+  3. Implement training loop with validation
+  4. Achieve >95% accuracy
+  
+  **Deliverable:** A complete training script with logging and model saving.
+</Accordion>
+
+---
+
+## Week 6: Data Loading
+
+<Steps>
+  <Step title="Day 1-2: Dataset Class">
+    Create custom datasets for your data.
+
+    **Topics Covered:**
+    - `torch.utils.data.Dataset` interface
+    - `__len__` and `__getitem__` methods
+    - `TensorDataset` for simple cases
+    - Handling different data formats
+
+    <Card title="Datasets API" icon="database" href="/api/data/datasets">
+      Dataset reference
+    </Card>
+  </Step>
+
+  <Step title="Day 3-4: DataLoader">
+    Efficiently batch and iterate over data.
+
+    **Topics Covered:**
+    - `torch.utils.data.DataLoader`
+    - Batching, shuffling, and sampling
+    - `num_workers` for parallel loading
+    - `pin_memory` for GPU transfer
+
+    <Card title="Data Loading API" icon="spinner" href="/api/data/data-loading">
+      DataLoader reference
+    </Card>
+  </Step>
+
+  <Step title="Day 5-7: Transforms & Augmentation">
+    Preprocess and augment your data.
+
+    **Topics Covered:**
+    - `torchvision.transforms` basics
+    - Composing transforms
+    - Data augmentation strategies
+    - Custom transform functions
+
+    <Card title="Data Loading Tutorial" icon="graduation-cap" href="/tutorials/beginner/data-loading">
+      Data loading tutorial
+    </Card>
+  </Step>
+</Steps>
+
+### Week 6 Practice Project
+
+<Accordion title="Project: Custom Image Dataset">
+  Build a complete data pipeline:
+  1. Create custom `Dataset` for local images
+  2. Implement data augmentation
+  3. Set up efficient `DataLoader`
+  4. Profile loading performance
+  
+  **Deliverable:** A reusable data loading module with augmentation support.
+</Accordion>
+
+---
+
+## Self-Assessment Checklist
+
+<Tabs>
+  <Tab title="Tensors">
+    - [ ] I can create tensors using at least 5 different methods
+    - [ ] I understand the difference between `view` and `reshape`
+    - [ ] I can use advanced indexing to select specific elements
+    - [ ] I understand broadcasting rules
+    - [ ] I can move tensors between CPU and GPU
+  </Tab>
+  <Tab title="Autograd">
+    - [ ] I understand what `requires_grad` does
+    - [ ] I can explain the computational graph concept
+    - [ ] I know when to use `torch.no_grad()`
+    - [ ] I can manually compute gradients for simple functions
+    - [ ] I can debug common gradient issues
+  </Tab>
+  <Tab title="Neural Networks">
+    - [ ] I can create custom `nn.Module` classes
+    - [ ] I understand the `forward()` method
+    - [ ] I can choose appropriate activation functions
+    - [ ] I can access model parameters and gradients
+    - [ ] I can save and load model weights
+  </Tab>
+  <Tab title="Training">
+    - [ ] I can implement a complete training loop
+    - [ ] I understand the train/eval mode difference
+    - [ ] I can choose appropriate loss functions
+    - [ ] I can configure optimizers with learning rates
+    - [ ] I can implement early stopping
+  </Tab>
+  <Tab title="Data">
+    - [ ] I can create custom Dataset classes
+    - [ ] I can configure DataLoader for efficiency
+    - [ ] I understand `num_workers` and `pin_memory`
+    - [ ] I can implement data augmentation
+    - [ ] I can handle imbalanced datasets
+  </Tab>
+</Tabs>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Intermediate Path" icon="arrow-right" href="/paths/intermediate">
+    Ready for more? Continue to advanced architectures and deployment.
+  </Card>
+  <Card title="Image Classification Example" icon="image" href="/examples/vision/image-classification">
+    Apply your skills to a real computer vision project.
+  </Card>
+</CardGroup>

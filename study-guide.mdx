@@ -1,0 +1,430 @@
+# PyTorch API Complete Study Guide
+
+## Study Path Organization
+
+### Phase 1: Fundamentals (2-3 weeks)
+
+**Goal**: Master basic tensor operations and understand PyTorch's core concepts
+
+#### Week 1: Tensor Basics
+
+- **Day 1-2**: Tensor Creation
+  - `torch.tensor`, `torch.zeros`, `torch.ones`, `torch.arange`, `torch.linspace`
+  - `torch.eye`, `torch.empty`, `torch.full`
+  - `torch.from_numpy`, `torch.as_tensor`, `torch.asarray`
+- **Day 3-4**: Tensor Manipulation
+  - `torch.cat`, `torch.stack`, `torch.split`, `torch.chunk`
+  - `torch.reshape`, `torch.transpose`, `torch.permute`
+  - `torch.squeeze`, `torch.unsqueeze`, `torch.flatten`
+- **Day 5-7**: Indexing & Slicing
+  - `torch.index_select`, `torch.masked_select`, `torch.gather`, `torch.scatter`
+  - Boolean indexing, advanced indexing
+  - `torch.where`, `torch.nonzero`
+
+#### Week 2: Mathematical Operations
+
+- **Day 1-2**: Pointwise Operations
+  - Arithmetic: `add`, `sub`, `mul`, `div`, `pow`
+  - Trigonometric: `sin`, `cos`, `tan`, `asin`, `acos`, `atan`
+  - Exponential: `exp`, `log`, `sqrt`, `sigmoid`, `tanh`
+- **Day 3-4**: Reduction Operations
+  - `torch.sum`, `torch.mean`, `torch.std`, `torch.var`
+  - `torch.max`, `torch.min`, `torch.argmax`, `torch.argmin`
+  - `torch.prod`, `torch.median`, `torch.mode`
+- **Day 5-7**: Comparison & Logical Operations
+  - Comparison: `eq`, `ne`, `gt`, `ge`, `lt`, `le`
+  - Logical: `logical_and`, `logical_or`, `logical_not`, `logical_xor`
+  - Bitwise: `bitwise_and`, `bitwise_or`, `bitwise_xor`
+
+#### Week 3: Linear Algebra Basics
+
+- **Day 1-3**: Matrix Operations
+  - `torch.mm`, `torch.matmul`, `torch.bmm`
+  - `torch.dot`, `torch.vdot`, `torch.outer`, `torch.inner`
+  - Broadcasting rules
+- **Day 4-7**: Basic Linear Algebra
+  - `torch.linalg.norm`, `torch.linalg.det`
+  - `torch.linalg.inv`, `torch.linalg.solve`
+  - `torch.trace`, matrix properties
+
+---
+
+### Phase 2: Neural Networks (3-4 weeks)
+
+**Goal**: Build and train neural networks from scratch
+
+#### Week 4: Neural Network Fundamentals
+
+- **Day 1-2**: Module System
+  - `torch.nn.Module` architecture
+  - `torch.nn.Parameter`, `torch.nn.Buffer`
+  - Forward and backward passes
+- **Day 3-4**: Basic Layers
+  - `torch.nn.Linear`
+  - `torch.nn.Conv2d`, `torch.nn.Conv1d`, `torch.nn.Conv3d`
+  - `torch.nn.MaxPool2d`, `torch.nn.AvgPool2d`
+- **Day 5-7**: Activation Functions
+  - `torch.nn.ReLU`, `torch.nn.LeakyReLU`, `torch.nn.ELU`
+  - `torch.nn.Sigmoid`, `torch.nn.Tanh`
+  - `torch.nn.GELU`, `torch.nn.SiLU`, `torch.nn.Softmax`
+
+#### Week 5: Advanced Layers
+
+- **Day 1-3**: Normalization
+  - `torch.nn.BatchNorm1d/2d/3d`
+  - `torch.nn.LayerNorm`, `torch.nn.GroupNorm`
+  - `torch.nn.InstanceNorm1d/2d/3d`
+- **Day 4-7**: Recurrent Networks
+  - `torch.nn.RNN`, `torch.nn.LSTM`, `torch.nn.GRU`
+  - `torch.nn.RNNCell`, `torch.nn.LSTMCell`, `torch.nn.GRUCell`
+  - Sequence modeling
+
+#### Week 6: Transformers & Attention
+
+- **Day 1-4**: Transformer Architecture
+  - `torch.nn.Transformer`
+  - `torch.nn.TransformerEncoder/Decoder`
+  - `torch.nn.TransformerEncoderLayer/DecoderLayer`
+- **Day 5-7**: Attention Mechanisms
+  - `torch.nn.MultiheadAttention`
+  - `torch.nn.functional.scaled_dot_product_attention`
+  - Self-attention, cross-attention
+
+#### Week 7: Loss Functions & Optimization
+
+- **Day 1-3**: Loss Functions
+  - Regression: `MSELoss`, `L1Loss`, `SmoothL1Loss`, `HuberLoss`
+  - Classification: `CrossEntropyLoss`, `NLLLoss`, `BCELoss`, `BCEWithLogitsLoss`
+  - Embedding: `CosineEmbeddingLoss`, `TripletMarginLoss`
+- **Day 4-7**: Optimizers
+  - `torch.optim.SGD`, `torch.optim.Adam`, `torch.optim.AdamW`
+  - `torch.optim.RMSprop`, `torch.optim.Adagrad`
+  - Learning rate schedulers
+
+---
+
+### Phase 3: Automatic Differentiation (1-2 weeks)
+
+**Goal**: Master autograd and gradient computation
+
+#### Week 8: Autograd Deep Dive
+
+- **Day 1-3**: Gradient Computation
+  - `torch.autograd.backward`, `torch.autograd.grad`
+  - `Tensor.backward()`, `Tensor.grad`
+  - Computational graphs
+- **Day 4-5**: Gradient Contexts
+  - `torch.no_grad()`, `torch.enable_grad()`
+  - `torch.set_grad_enabled()`, `torch.inference_mode()`
+  - When to use each context
+- **Day 6-7**: Custom Autograd Functions
+  - `torch.autograd.Function`
+  - `forward()` and `backward()` methods
+  - Custom gradient implementation
+
+---
+
+### Phase 4: Data Loading & Processing (1 week)
+
+**Goal**: Efficiently load and preprocess data
+
+#### Week 9: Data Utilities
+
+- **Day 1-3**: Datasets
+  - `torch.utils.data.Dataset`
+  - `torch.utils.data.TensorDataset`
+  - Custom dataset creation
+- **Day 4-7**: Data Loading
+  - `torch.utils.data.DataLoader`
+  - `torch.utils.data.Sampler`, `torch.utils.data.BatchSampler`
+  - Multiprocessing, pin_memory, prefetching
+
+---
+
+### Phase 5: Advanced Training (2-3 weeks)
+
+**Goal**: Implement production-ready training pipelines
+
+#### Week 10: Distributed Training
+
+- **Day 1-3**: Data Parallel
+  - `torch.nn.DataParallel`
+  - `torch.nn.parallel.DistributedDataParallel`
+  - Multi-GPU training
+- **Day 4-7**: FSDP & Advanced Parallelism
+  - `torch.distributed.fsdp.FullyShardedDataParallel`
+  - Tensor parallelism, pipeline parallelism
+  - Distributed optimization
+
+#### Week 11: Mixed Precision & Optimization
+
+- **Day 1-3**: Automatic Mixed Precision
+  - `torch.cuda.amp.autocast`
+  - `torch.cuda.amp.GradScaler`
+  - FP16/BF16 training
+- **Day 4-7**: Gradient Accumulation & Clipping
+  - `torch.nn.utils.clip_grad_norm_`
+  - `torch.nn.utils.clip_grad_value_`
+  - Memory-efficient training
+
+#### Week 12: Checkpointing & Serialization
+
+- **Day 1-4**: Model Saving/Loading
+  - `torch.save`, `torch.load`
+  - State dict management
+  - `torch.nn.utils.checkpoint` (gradient checkpointing)
+- **Day 5-7**: Distributed Checkpointing
+  - `torch.distributed.checkpoint`
+  - Sharded checkpoints
+  - Resuming training
+
+---
+
+### Phase 6: Performance & Deployment (2-3 weeks)
+
+**Goal**: Optimize models for production
+
+#### Week 13: JIT Compilation
+
+- **Day 1-4**: TorchScript
+  - `torch.jit.script`, `torch.jit.trace`
+  - `torch.jit.ScriptModule`
+  - `torch.jit.freeze`, `torch.jit.optimize_for_inference`
+- **Day 5-7**: JIT Optimization
+  - Fusion optimization
+  - Type refinement
+  - Graph optimization
+
+#### Week 14: PyTorch 2.0 Compiler
+
+- **Day 1-4**: torch.compile
+  - `torch.compile()` modes
+  - Backends: inductor, cudagraphs, onnxrt
+  - Debugging compilation
+- **Day 5-7**: Advanced Compilation
+  - Dynamic shapes
+  - AOT Autograd
+  - Custom backends
+
+#### Week 15: Model Export & Quantization
+
+- **Day 1-3**: ONNX Export
+  - `torch.onnx.export`
+  - `torch.onnx.dynamo_export`
+  - ONNX runtime deployment
+- **Day 4-7**: Quantization
+  - `torch.quantization.quantize_dynamic`
+  - `torch.quantization.quantize_qat`
+  - Post-training quantization, QAT
+
+---
+
+### Phase 7: Advanced Topics (2-4 weeks)
+
+**Goal**: Master advanced PyTorch features
+
+#### Week 16: Functional Transforms
+
+- **Day 1-4**: torch.func
+  - `torch.func.vmap` (vectorization)
+  - `torch.func.grad`, `torch.func.grad_and_value`
+  - `torch.func.jacrev`, `torch.func.jacfwd`
+- **Day 5-7**: Functionalization
+  - `torch.func.functionalize`
+  - `torch.func.functional_call`
+  - Pure functional transformations
+
+#### Week 17: Sparse Tensors
+
+- **Day 1-4**: Sparse Formats
+  - `torch.sparse_coo_tensor`
+  - `torch.sparse_csr_tensor`, `torch.sparse_csc_tensor`
+  - `torch.sparse_bsr_tensor`, `torch.sparse_bsc_tensor`
+- **Day 5-7**: Sparse Operations
+  - `torch.sparse.mm`, `torch.sparse.addmm`
+  - `torch.sparse.sum`, `torch.sparse.softmax`
+  - Sparse gradients
+
+#### Week 18: Signal Processing & FFT
+
+- **Day 1-4**: FFT Operations
+  - `torch.fft.fft`, `torch.fft.ifft`
+  - `torch.fft.rfft`, `torch.fft.irfft`
+  - 2D and N-D FFT
+- **Day 5-7**: Spectral Analysis
+  - `torch.stft`, `torch.istft`
+  - Window functions
+  - Audio/signal processing
+
+#### Week 19: Profiling & Debugging
+
+- **Day 1-4**: Profiler
+  - `torch.profiler.profile`
+  - `torch.profiler.record_function`
+  - Performance analysis
+- **Day 5-7**: Debugging Tools
+  - `torch.autograd.detect_anomaly`
+  - `torch.autograd.gradcheck`, `torch.autograd.gradgradcheck`
+  - Memory profiling
+
+---
+
+## Learning Resources by Category
+
+### Essential APIs (Must Know)
+
+1. **Tensor Operations**: 95% daily use
+2. **torch.nn.Module**: Core building block
+3. **torch.optim**: Training essentials
+4. **torch.autograd**: Automatic differentiation
+5. **torch.utils.data**: Data loading
+
+### Important APIs (Should Know)
+
+1. **torch.nn.functional**: Functional operations
+2. **torch.cuda**: GPU management
+3. **torch.distributed**: Multi-GPU/multi-node
+4. **torch.jit**: Model optimization
+5. **torch.compile**: PyTorch 2.0 compiler
+
+### Advanced APIs (Nice to Know)
+
+1. **torch.func**: Functional transforms
+2. **torch.export**: Model export
+3. **torch.quantization**: Model quantization
+4. **torch.sparse**: Sparse tensors
+5. **torch.profiler**: Performance profiling
+
+### Specialized APIs (Domain Specific)
+
+1. **torch.fft**: Signal processing
+2. **torch.linalg**: Linear algebra
+3. **torch.special**: Special functions
+4. **torch.nested**: Nested tensors
+5. **torch.distributed.fsdp**: Large model training
+
+---
+
+## Practice Projects by Phase
+
+### Phase 1 Projects
+
+1. Implement tensor operations from scratch
+2. Build a simple neural network without nn.Module
+3. Create custom data transformations
+
+### Phase 2 Projects
+
+1. Build CNN for image classification
+2. Implement RNN for sequence prediction
+3. Create a Transformer from scratch
+
+### Phase 3 Projects
+
+1. Implement custom loss function with autograd
+2. Build custom optimizer
+3. Create backward hooks for analysis
+
+### Phase 4 Projects
+
+1. Build efficient data pipeline for large datasets
+2. Implement custom sampler
+3. Create data augmentation pipeline
+
+### Phase 5 Projects
+
+1. Multi-GPU training pipeline
+2. Mixed precision training
+3. Distributed data parallel training
+
+### Phase 6 Projects
+
+1. Export model to ONNX
+2. Quantize model for mobile
+3. Optimize with torch.compile
+
+### Phase 7 Projects
+
+1. Use vmap for batch processing
+2. Implement sparse neural network
+3. Build audio processing pipeline with FFT
+
+---
+
+## Daily Study Routine
+
+### Beginner (Weeks 1-4)
+
+- **30 min**: Read documentation
+- **60 min**: Code along with examples
+- **30 min**: Practice exercises
+- **Total**: 2 hours/day
+
+### Intermediate (Weeks 5-12)
+
+- **20 min**: Documentation review
+- **90 min**: Build projects
+- **30 min**: Debug and optimize
+- **Total**: 2.5 hours/day
+
+### Advanced (Weeks 13-19)
+
+- **15 min**: Read research papers
+- **120 min**: Advanced projects
+- **15 min**: Community engagement
+- **Total**: 2.5 hours/day
+
+---
+
+## Assessment Checklist
+
+### Phase 1: ✓
+
+- [ ] Can create tensors in 5+ different ways
+- [ ] Understand broadcasting rules
+- [ ] Can manipulate tensor shapes efficiently
+- [ ] Master indexing and slicing
+- [ ] Perform matrix operations
+
+### Phase 2: ✓
+
+- [ ] Build custom nn.Module from scratch
+- [ ] Implement CNN, RNN, Transformer
+- [ ] Understand loss functions
+- [ ] Configure optimizers and schedulers
+- [ ] Debug training loops
+
+### Phase 3: ✓
+
+- [ ] Understand computational graphs
+- [ ] Implement custom autograd functions
+- [ ] Use gradient contexts appropriately
+- [ ] Debug gradient flow
+
+### Phase 4: ✓
+
+- [ ] Build efficient data pipelines
+- [ ] Implement custom datasets
+- [ ] Optimize data loading
+- [ ] Handle large datasets
+
+### Phase 5: ✓
+
+- [ ] Set up multi-GPU training
+- [ ] Implement mixed precision
+- [ ] Use FSDP for large models
+- [ ] Manage checkpoints
+
+### Phase 6: ✓
+
+- [ ] Export models to production formats
+- [ ] Optimize with JIT/compile
+- [ ] Quantize models
+- [ ] Profile and optimize performance
+
+### Phase 7: ✓
+
+- [ ] Use functional transforms
+- [ ] Work with sparse tensors
+- [ ] Implement signal processing
+- [ ] Master debugging tools

@@ -1,0 +1,72 @@
+---
+title: Overview
+description: An overview of Data Parallelism and Model Parallelism in PyTorch.
+---
+
+## Overview
+
+Scaling large language models requires understanding hardware-level acceleration, distributed computing, and specialized deep learning libraries. Key areas include GPU/TPU architectures, fused CUDA kernels, quantization-aware training, and distributed training frameworks like DeepSpeed and Megatron-DeepSpeed.
+
+## Tools & Libraries
+
+- **Distributed Computing & Scheduling:** [Ray](https://github.com/ray-project/ray), [MPI4Py](https://mpi4py.readthedocs.io/en/stable/index.html), [Joblib](https://joblib.readthedocs.io/en/stable/index.html)
+- **Deep Learning & Model Acceleration:** [DeepSpeed](https://www.deepspeed.ai/), [Hugging Face Accelerate](https://huggingface.co/docs/accelerate/en/index)
+- **Experiment Tracking & Data Management:** [MLflow](https://mlflow.org/), [DVC](https://dvc.org/)
+- **GPU & CUDA Resources:** [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), [CUDA C Programming Guide](https://docs.nvidia.com/cuda/cuda-c-programming-guide/), [Numba CUDA Kernels](https://numba.pydata.org/numba-doc/dev/cuda/kernels.html), [NCCL](https://github.com/NVIDIA/nccl)
+- **Additional Learning Resources:** [Sakana AI CUDA Engineer](https://sakana.ai/ai-cuda-engineer/), [Modal GPU Glossary](https://modal.com/gpu-glossary/device-software/kernel), [Custom CUDA Kernels Guide](https://shivance.medium.com/your-very-own-cuda-kernel-3ed222be0d87)
+
+## Key Concepts
+
+- Hardware accelerators: NVIDIA A100/H800, NVLink, NVSwitch, InfiniBand
+- Fused CUDA kernels & FlashAttention implementations
+- Quantization-aware training
+- Collective Communication (NCCL)
+- Parallelism strategies: Data, Model, Pipeline
+- Mixture-of-Experts (MoE), Multi-Token Prediction (MTP), Multi-head Latent Attention (MLA)
+- DeepSpeed ZeRO optimizations
+- Advanced model scaling: Megatron-DeepSpeed, Hugging Face scaling papers
+
+## Tutorials & Case Studies
+
+- [DeepSpeed Megatron Tutorial](https://www.deepspeed.ai/tutorials/megatron/)
+- [JAX Scaling Book](https://jax-ml.github.io/scaling-book/)
+- [Ultrascale Playbook](https://huggingface.co/spaces/nanotron/ultrascale-playbook)
+- [Meta LLM Training Infrastructure](https://engineering.fb.com/2024/06/12/data-infrastructure/training-large-language-models-at-scale-meta/)
+- [PyTorch Distributed Overview](https://docs.pytorch.org/tutorials/beginner/dist_overview.html)
+- [Hugging Face Blogs on DeepSpeed & Megatron](https://huggingface.co/blog/deepspeed-to-fsdp-and-back)
+- NVIDIA & Alpa scaling guides, Microsoft Research blogs, and relevant arXiv papers
+
+## Prerequisites & Courses
+
+### Math & Algorithms
+
+- Linear algebra, probability, optimization (SGD variants)
+- Complexity analysis, communication vs computation costs
+
+### Computer Architecture
+
+- CPUs vs GPUs vs TPUs, memory hierarchies, SIMD, NVLink
+- NUMA fundamentals
+
+### Parallel Computing Paradigms
+
+- Shared-memory: OpenMP, pthreads
+- Distributed-memory: MPI, RPC
+- Data, model, and pipeline parallelism
+
+### Recommended Courses
+
+- [High-Performance Parallel Computing Specialization (Coursera)](https://www.coursera.org/specializations/high-performance-parallel-computing)
+- [GPU Programming Specialization (Coursera)](https://www.coursera.org/specializations/gpu-programming/?utm_medium=sem&utm_source=gg&utm_campaign=b2c_emea_gpu-programming_jhu_ftcof_specializations_cx_dr_bau_gg_sem_pr_s1_en_m_hyb_24-11_x&campaignid=21881822624&adgroupid=170883793198&device=c&keyword=gpu%20programming&matchtype=p&network=g&devicemodel=&creativeid=720157220862&assetgroupid=&targetid=kwd-312001201560&extensionid=&placement=&gad_source=1&gad_campaignid=21881822624&gbraid=0AAAAADdKX6amWI-QWH95qLfL5_JpmKFmv&gclid=CjwKCAjwiY_GBhBEEiwAFaghvudw9tqmIjPKDcrCtfDa-gLI8p8A_jbkPYmV9YwOz1nEMcoQ1n39txoCmFMQAvD_BwE)
+- [Stanford GPU Programming YouTube Playlist](https://www.youtube.com/watch?v=V1tINV2-9p4&list=PLoROMvodv4rMp7MTFr4hQsDEcX7Bx6Odp&ab_channel=StanfordOnline)
+- [NVIDIA Developer GPU Programming Tutorials](https://www.youtube.com/watch?v=GmNkYayuaA4&ab_channel=NVIDIADeveloper)
+
+## Learning Plan
+
+1. Start with math, algorithms, and parallel computing fundamentals.
+2. Explore GPU architectures, CUDA, and hardware accelerators.
+3. Practice distributed computing using MPI, Ray, and DeepSpeed.
+4. Study tutorials and blogs for large-scale LLM training workflows.
+5. Implement small-scale experiments, scaling gradually to multi-GPU and cluster setups.
+6. Track experiments and data efficiently with MLflow or DVC.
+7. Review advanced papers to understand state-of-the-art techniques like MoE, FlashAttention, and ZeRO optimization.

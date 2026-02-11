@@ -1,69 +1,811 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Modern PyTorch Guide",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#3BA63D",
+    "light": "#A8E063",
+    "dark": "#3E7F0A"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Official Docs",
+        "href": "https://pytorch.org/docs"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "GitHub",
+      "href": "https://github.com/pytorch/pytorch"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Foundations",
+
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Getting Started",
+            "pages": ["foundations/plan"]
+          },
+          {
+            "group": "Tensors & Operations",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "foundations/tensors/introduction",
+              "foundations/tensors/creation",
+              "foundations/tensors/indexing-slicing",
+              "foundations/tensors/operations",
+              "foundations/tensors/broadcasting",
+              "foundations/tensors/views-strides",
+              "foundations/tensors/named-tensors",
+              "foundations/tensors/tensor-attributes"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Autograd & Differentiation",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "foundations/autograd/basics",
+              "foundations/autograd/computational-graph",
+              "foundations/autograd/custom-functions",
+              "foundations/autograd/gradients-explained",
+              "foundations/autograd/requires-grad",
+              "foundations/autograd/forward-mode"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Neural Network Basics",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "foundations/nn/module-basics",
+              "foundations/nn/parameters-buffers",
+              "foundations/nn/forward-pass",
+              "foundations/nn/hooks",
+              "foundations/nn/state-dict",
+              "foundations/nn/init-strategies"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Data Loading",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "foundations/data/datasets",
+              "foundations/data/dataloaders",
+              "foundations/data/transforms",
+              "foundations/data/samplers",
+              "foundations/data/pin-memory",
+              "foundations/data/webdataset"
+            ]
+          },
+          {
+            "group": "ETL Process",
+            "pages": ["foundations/etl/overview"]
+          }
+        ]
+      },
+      {
+        "tab": "Building Models",
+        "groups": [
+          {
+            "group": "Architecture Patterns",
+            "pages": [
+              "building/architectures/mlp",
+              "building/architectures/cnn",
+              "building/architectures/rnn-lstm",
+              "building/architectures/gru",
+              "building/architectures/transformer",
+              "building/architectures/attention-mechanisms",
+              "building/architectures/autoencoders",
+              "building/architectures/vae",
+              "building/architectures/diffusion",
+              "building/architectures/gans",
+              "building/architectures/spatial-transformer"
+            ]
+          },
+          {
+            "group": "Loss Functions",
+            "pages": [
+              "building/losses/regression",
+              "building/losses/classification",
+              "building/losses/contrastive",
+              "building/losses/custom",
+              "building/losses/adversarial"
+            ]
+          },
+          {
+            "group": "Optimizers",
+            "pages": [
+              "building/optimizers/overview",
+              "building/optimizers/sgd-momentum",
+              "building/optimizers/adam-variants",
+              "building/optimizers/lr-schedulers",
+              "building/optimizers/compiled-optimizer",
+              "building/optimizers/zero-redundancy"
+            ]
+          },
+          {
+            "group": "Training Loops",
+            "pages": [
+              "building/training/basic-loop",
+              "building/training/validation",
+              "building/training/checkpointing",
+              "building/training/early-stopping",
+              "building/training/mixed-precision",
+              "building/training/gradient-accumulation",
+              "building/training/grad-clipping"
+            ]
+          },
+          {
+            "group": "Debugging & Visualization",
+            "pages": [
+              "building/debugging/common-errors",
+              "building/debugging/gradient-issues",
+              "building/debugging/profiling",
+              "building/debugging/tensorboard",
+              "building/debugging/anomaly-detection",
+              "building/debugging/gradcheck",
+              "building/debugging/visualizing-gradients"
+            ]
+          },
+          {
+            "group": "Advanced Techniques",
+            "pages": [
+              "building/advanced/parametrizations",
+              "building/advanced/pruning",
+              "building/advanced/knowledge-distillation",
+              "building/advanced/model-ensembling",
+              "building/advanced/per-sample-gradients"
+            ]
+          },
+          {
+            "group": "Parallel computing",
+            "pages": ["building/parallel-computing/overview"]
+          },
+          {
+            "group": "Device Management",
+            "pages": [
+              "foundations/device/cpu",
+              "foundations/device/cuda-basics",
+              "foundations/device/mps",
+              "foundations/device/xpu",
+              "foundations/device/streams-events"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Performance",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "torch.compile",
             "pages": [
-              "api-reference/introduction"
+              "performance/compile/introduction",
+              "performance/compile/backends",
+              "performance/compile/graph-breaks",
+              "performance/compile/dynamic-shapes",
+              "performance/compile/inductor",
+              "performance/compile/aot-autograd",
+              "performance/compile/troubleshooting",
+              "performance/compile/compiled-autograd",
+              "performance/compile/regional-compilation",
+              "performance/compile/cache-control"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "torch.export",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "performance/export/overview",
+              "performance/export/ir-spec",
+              "performance/export/control-flow",
+              "performance/export/dynamic-shapes",
+              "performance/export/aot-inductor"
             ]
+          },
+          {
+            "group": "Quantization",
+            "pages": [
+              "performance/quantization/overview",
+              "performance/quantization/post-training",
+              "performance/quantization/qat",
+              "performance/quantization/dynamic",
+              "performance/quantization/fx-graph-mode",
+              "performance/quantization/backends"
+            ]
+          },
+          {
+            "group": "Distributed Training",
+            "pages": [
+              "performance/distributed/overview",
+              "performance/distributed/ddp",
+              "performance/distributed/fsdp",
+              "performance/distributed/fsdp2",
+              "performance/distributed/deepspeed",
+              "performance/distributed/tensor-parallel",
+              "performance/distributed/pipeline-parallel",
+              "performance/distributed/context-parallel",
+              "performance/distributed/rpc-framework",
+              "performance/distributed/zero-redundancy",
+              "performance/distributed/comm-hooks",
+              "performance/distributed/join-context",
+              "performance/distributed/monarch"
+            ]
+          },
+          {
+            "group": "Hardware Utilization",
+            "pages": [
+              "performance/hardware/cuda-semantics",
+              "performance/hardware/memory-management",
+              "performance/hardware/multi-gpu",
+              "performance/hardware/nvlink-infiniband",
+              "performance/hardware/amp",
+              "performance/hardware/channels-last",
+              "performance/hardware/mps-backend",
+              "performance/hardware/hip-rocm",
+              "performance/hardware/intel-gpu"
+            ]
+          },
+          {
+            "group": "Memory Optimization",
+            "pages": [
+              "performance/memory/gradient-checkpointing",
+              "performance/memory/mixed-precision",
+              "performance/memory/offloading",
+              "performance/memory/activation-checkpointing"
+            ]
+          },
+          {
+            "group": "Profiling & Benchmarking",
+            "pages": [
+              "performance/profiling/pytorch-profiler",
+              "performance/profiling/tensorboard-profiling",
+              "performance/profiling/inductor-profiling",
+              "performance/profiling/benchmark-utils",
+              "performance/profiling/bottleneck",
+              "performance/profiling/flight-recorder"
+            ]
+          },
+          {
+            "group": "Code Transforms",
+            "pages": [
+              "performance/fx/overview",
+              "performance/fx/graph-transformations",
+              "performance/fx/fusion-patterns",
+              "performance/fx/experimental"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Domains",
+        "groups": [
+          {
+            "group": "NLP & LLMs",
+            "pages": [
+              "domains/nlp/tokenizers",
+              "domains/nlp/transformers-hf",
+              "domains/nlp/lightning",
+              "domains/nlp/text-classification",
+              "domains/nlp/language-modeling",
+              "domains/nlp/llm-inference",
+              "domains/nlp/nlp-from-scratch",
+              "domains/nlp/attention-mechanisms"
+            ]
+          },
+          {
+            "group": "Computer Vision",
+            "pages": [
+              "domains/vision/torchvision",
+              "domains/vision/timm",
+              "domains/vision/image-classification",
+              "domains/vision/object-detection",
+              "domains/vision/segmentation",
+              "domains/vision/transfer-learning",
+              "domains/vision/adversarial-examples"
+            ]
+          },
+          {
+            "group": "Audio & Speech",
+            "pages": [
+              "domains/audio/torchaudio",
+              "domains/audio/speech-recognition",
+              "domains/audio/audio-classification"
+            ]
+          },
+          {
+            "group": "Generative Models",
+            "pages": [
+              "domains/generative/diffusion-basics",
+              "domains/generative/diffusers",
+              "domains/generative/vae",
+              "domains/generative/gans",
+              "domains/generative/dcgan"
+            ]
+          },
+          {
+            "group": "Reinforcement Learning",
+            "pages": [
+              "domains/rl/torchrl",
+              "domains/rl/environments",
+              "domains/rl/policy-gradient",
+              "domains/rl/dqn",
+              "domains/rl/ppo",
+              "domains/rl/mario-agent"
+            ]
+          },
+          {
+            "group": "Recommendation Systems",
+            "pages": [
+              "domains/recsys/torchrec-intro",
+              "domains/recsys/sharding"
+            ]
+          },
+          {
+            "group": "Video & Multimodal",
+            "pages": [
+              "domains/video/video-classification",
+              "domains/video/action-recognition"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Production",
+        "groups": [
+          {
+            "group": "Model Export",
+            "pages": [
+              "production/export/torchscript",
+              "production/export/torch-export",
+              "production/export/onnx",
+              "production/export/onnx-extending",
+              "production/export/aot-inductor",
+              "production/export/pt2-archive"
+            ]
+          },
+          {
+            "group": "Serving & Inference",
+            "pages": [
+              "production/serving/torchserve",
+              "production/serving/vllm",
+              "production/serving/triton",
+              "production/serving/tensorrt",
+              "production/serving/mobile-optimization",
+              "production/serving/raspberry-pi",
+              "production/serving/libtorch-abi"
+            ]
+          },
+          {
+            "group": "Experiment Tracking",
+            "pages": [
+              "production/tracking/wandb",
+              "production/tracking/mlflow",
+              "production/tracking/tensorboard"
+            ]
+          },
+          {
+            "group": "MLOps & Pipelines",
+            "pages": [
+              "production/mlops/reproducibility",
+              "production/mlops/docker",
+              "production/mlops/kubernetes",
+              "production/mlops/ci-cd",
+              "production/mlops/large-scale-deployments",
+              "production/mlops/checkpoint-dcp",
+              "production/mlops/async-checkpointing"
+            ]
+          },
+          {
+            "group": "Ecosystem Tools",
+            "pages": [
+              "production/ecosystem/huggingface-hub",
+              "production/ecosystem/accelerate",
+              "production/ecosystem/datasets-hf",
+              "production/ecosystem/optimum",
+              "production/ecosystem/peft",
+              "production/ecosystem/ray-tune",
+              "production/ecosystem/ax-nas"
+            ]
+          },
+          {
+            "group": "Monitoring & Debugging",
+            "pages": [
+              "production/monitoring/captum",
+              "production/monitoring/mosaic-profiler",
+              "production/monitoring/comm-debug-mode",
+              "production/monitoring/debug-mode"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Advanced",
+        "groups": [
+          {
+            "group": "Fine-tuning & Adaptation",
+            "pages": [
+              "advanced/finetuning/transfer-learning",
+              "advanced/finetuning/peft-lora",
+              "advanced/finetuning/qlora",
+              "advanced/finetuning/rlhf",
+              "advanced/finetuning/warmstarting"
+            ]
+          },
+          {
+            "group": "Custom Operators",
+            "pages": [
+              "advanced/custom-ops/python-ops",
+              "advanced/custom-ops/cpp-extensions",
+              "advanced/custom-ops/cuda-kernels",
+              "advanced/custom-ops/triton",
+              "advanced/custom-ops/dispatching",
+              "advanced/custom-ops/backend-integration",
+              "advanced/custom-ops/double-backward"
+            ]
+          },
+          {
+            "group": "Advanced Parallelism",
+            "pages": [
+              "advanced/parallelism/megatron",
+              "advanced/parallelism/zero",
+              "advanced/parallelism/expert-parallel",
+              "advanced/parallelism/3d-parallelism",
+              "advanced/parallelism/device-mesh",
+              "advanced/parallelism/symmetric-memory"
+            ]
+          },
+          {
+            "group": "Research Tools",
+            "pages": [
+              "advanced/research/torch-func",
+              "advanced/research/torch-fx",
+              "advanced/research/functorch",
+              "advanced/research/flash-attention",
+              "advanced/research/vmap",
+              "advanced/research/jacobian-hessian"
+            ]
+          },
+          {
+            "group": "Extending PyTorch",
+            "pages": [
+              "advanced/extending/overview",
+              "advanced/extending/autograd-functions",
+              "advanced/extending/cpp-frontend",
+              "advanced/extending/custom-backends",
+              "advanced/extending/privateuse1"
+            ]
+          },
+          {
+            "group": "Sparse & Structured Tensors",
+            "pages": [
+              "advanced/sparse/sparse-tensors",
+              "advanced/sparse/nested-tensors",
+              "advanced/sparse/masked-tensors",
+              "advanced/sparse/operations"
+            ]
+          },
+          {
+            "group": "Advanced Features",
+            "pages": [
+              "advanced/features/complex-numbers",
+              "advanced/features/foreach-map",
+              "advanced/features/packaging",
+              "advanced/features/hub",
+              "advanced/features/autoload-extensions",
+              "advanced/features/torch-modes"
+            ]
+          },
+          {
+            "group": "Low-Level & Internals",
+            "pages": [
+              "advanced/internals/fake-tensors",
+              "advanced/internals/aten-ir",
+              "advanced/internals/provenance-tracking",
+              "advanced/internals/minifier",
+              "advanced/internals/logging"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Core Tensors",
+            "pages": [
+              "api/core/tensor-creation",
+              "api/core/tensor-attributes",
+              "api/core/tensor-manipulation",
+              "api/core/tensor-views",
+              "api/core/indexing-slicing",
+              "api/core/tensor-size"
+            ]
+          },
+          {
+            "group": "Mathematical Operations",
+            "pages": [
+              "api/math/pointwise-ops",
+              "api/math/reduction-ops",
+              "api/math/comparison-ops",
+              "api/math/logical-ops",
+              "api/math/bitwise-ops",
+              "api/math/spectral-ops",
+              "api/math/other-ops"
+            ]
+          },
+
+          {
+            "group": "Neural Networks (torch.nn)",
+            "pages": [
+              "api/nn/containers",
+              "api/nn/linear-layers",
+              "api/nn/convolution-layers",
+              "api/nn/pooling-layers",
+              "api/nn/padding-layers",
+              "api/nn/upsampling-layers",
+              "api/nn/activation-functions",
+              "api/nn/normalization-layers",
+              "api/nn/recurrent-layers",
+              "api/nn/transformer-layers",
+              "api/nn/attention-layers",
+              "api/nn/dropout-layers",
+              "api/nn/embedding-layers",
+              "api/nn/distance-functions",
+              "api/nn/vision-layers",
+              "api/nn/init"
+            ]
+          },
+          {
+            "group": "Loss Functions",
+            "pages": [
+              "api/loss/regression-losses",
+              "api/loss/classification-losses",
+              "api/loss/embedding-losses",
+              "api/loss/other-losses"
+            ]
+          },
+          {
+            "group": "Functional (torch.nn.functional)",
+            "pages": [
+              "api/functional/nn-functional",
+              "api/functional/convolution-ops",
+              "api/functional/pooling-ops",
+              "api/functional/activation-functions",
+              "api/functional/normalization-ops",
+              "api/functional/loss-functions"
+            ]
+          },
+          {
+            "group": "Optimization (torch.optim)",
+            "pages": [
+              "api/optim/optimizer-api",
+              "api/optim/optimizers",
+              "api/optim/lr-schedulers"
+            ]
+          },
+          {
+            "group": "Automatic Differentiation",
+            "pages": [
+              "api/autograd/gradient-computation",
+              "api/autograd/gradient-contexts",
+              "api/autograd/custom-functions",
+              "api/autograd/functional-api",
+              "api/autograd/profiler"
+            ]
+          },
+          {
+            "group": "Data Loading & Processing",
+            "pages": [
+              "api/data/datasets",
+              "api/data/data-loading",
+              "api/data/samplers",
+              "api/data/transforms"
+            ]
+          },
+          {
+            "group": "Device Management",
+            "pages": [
+              "api/device/cpu",
+              "api/device/cuda",
+              "api/device/mps",
+              "api/device/xpu",
+              "api/device/mtia",
+              "api/device/accelerator",
+              "api/device/memory-management",
+              "api/device/streams-events",
+              "api/device/backends"
+            ]
+          },
+          {
+            "group": "Distributed Training",
+            "pages": [
+              "api/distributed/basic-distributed",
+              "api/distributed/ddp",
+              "api/distributed/fsdp",
+              "api/distributed/tensor-parallel",
+              "api/distributed/pipeline-parallel",
+              "api/distributed/rpc",
+              "api/distributed/checkpoint",
+              "api/distributed/elastic",
+              "api/distributed/tensor",
+              "api/distributed/algorithms"
+            ]
+          },
+          {
+            "group": "Model Compilation & Export",
+            "pages": [
+              "api/compiler/torch-compile",
+              "api/compiler/dynamo",
+              "api/compiler/inductor",
+              "api/compiler/aot-autograd",
+              "api/compiler/backends",
+              "api/jit/torchscript",
+              "api/jit/scripting",
+              "api/jit/tracing",
+              "api/jit/optimization",
+              "api/export/torch-export",
+              "api/export/onnx",
+              "api/export/quantization"
+            ]
+          },
+          {
+            "group": "Quantization",
+            "pages": [
+              "api/quantization/quantization-api",
+              "api/quantization/qconfig",
+              "api/quantization/observers",
+              "api/quantization/fake-quantize",
+              "api/quantization/quantized-modules"
+            ]
+          },
+          {
+            "group": "Sparse & Nested Tensors",
+            "pages": [
+              "api/sparse/sparse-formats",
+              "api/sparse/sparse-creation",
+              "api/sparse/sparse-ops",
+              "api/nested/nested-tensors",
+              "api/nested/nested-ops",
+              "api/masked/masked-tensors",
+              "api/masked/masked-ops"
+            ]
+          },
+          {
+            "group": "Random & Distributions",
+            "pages": [
+              "api/random/random-sampling",
+              "api/random/random-seed",
+              "api/random/distributions"
+            ]
+          },
+          {
+            "group": "Signal Processing",
+            "pages": [
+              "api/signal/fft",
+              "api/signal/spectral",
+              "api/signal/windows",
+              "api/signal/signal-ops"
+            ]
+          },
+          {
+            "group": "Special Functions",
+            "pages": [
+              "api/special/gamma-functions",
+              "api/special/error-functions",
+              "api/special/bessel-functions",
+              "api/special/other-functions"
+            ]
+          },
+          {
+            "group": "Serialization & Checkpointing",
+            "pages": [
+              "api/serialization/save-load",
+              "api/serialization/state-dict",
+              "api/serialization/checkpoint",
+              "api/serialization/storage"
+            ]
+          },
+          {
+            "group": "Profiling & Debugging",
+            "pages": [
+              "api/profiling/profiler",
+              "api/profiling/bottleneck",
+              "api/profiling/debugging",
+              "api/profiling/anomaly-detection",
+              "api/profiling/monitor",
+              "api/profiling/flop-counter"
+            ]
+          },
+          {
+            "group": "Testing Utilities",
+            "pages": [
+              "api/testing/assertions",
+              "api/testing/gradcheck",
+              "api/testing/utils"
+            ]
+          },
+          {
+            "group": "Functional Transformations (torch.func)",
+            "pages": [
+              "api/func/vmap",
+              "api/func/grad",
+              "api/func/jacobian",
+              "api/func/functionalize"
+            ]
+          },
+          {
+            "group": "Advanced Features",
+            "pages": [
+              "api/advanced/hooks",
+              "api/advanced/custom-operators",
+              "api/advanced/cpp-extensions",
+              "api/advanced/memory-format",
+              "api/advanced/autograd-profiler",
+              "api/advanced/library",
+              "api/advanced/overrides",
+              "api/advanced/amp"
+            ]
+          },
+          {
+            "group": "Utilities",
+            "pages": [
+              "api/utils/benchmark",
+              "api/utils/checkpoint",
+              "api/utils/tensorboard",
+              "api/utils/cpp-extension",
+              "api/utils/mobile-optimizer",
+              "api/utils/data-utils",
+              "api/utils/dlpack",
+              "api/utils/hipify",
+              "api/utils/jit-utils",
+              "api/utils/module-tracker",
+              "api/utils/deterministic",
+              "api/utils/collect-env",
+              "api/utils/model-zoo"
+            ]
+          },
+          {
+            "group": "Package & Deployment",
+            "pages": [
+              "api/package/overview",
+              "api/package/package-api",
+              "api/mobile/mobile-optimizer",
+              "api/mobile/nativert"
+            ]
+          },
+          {
+            "group": "Configuration & Environment",
+            "pages": [
+              "api/config/torch-config",
+              "api/config/future-flags",
+              "api/config/logging",
+              "api/config/environment-vars"
+            ]
+          },
+          {
+            "group": "Type System",
+            "pages": [
+              "api/types/type-info",
+              "api/types/complex-numbers",
+              "api/types/named-tensors",
+              "api/types/tensor-size"
+            ]
+          },
+          {
+            "group": "C++ API",
+            "pages": [
+              "api/cpp/overview",
+              "api/cpp/frontend",
+              "api/cpp/autograd",
+              "api/cpp/libtorch"
+            ]
+          },
+          {
+            "group": "Futures & Async",
+            "pages": ["api/futures/futures-api"]
           }
         ]
       }
@@ -71,52 +813,23 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Community",
+          "href": "https://pytorch.org/get-started/community",
+          "icon": "discord"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Forums",
+          "href": "https://discuss.pytorch.org",
+          "icon": "discourse"
         }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/pytorch",
+      "github": "https://github.com/pytorch/pytorch",
+      "linkedin": "https://www.linkedin.com/company/pytorch"
     }
   }
 }
