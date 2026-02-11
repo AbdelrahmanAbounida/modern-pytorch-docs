@@ -33,7 +33,7 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["foundations/plan"]
+            "pages": ["index", "plan", "study-guide"]
           },
           {
             "group": "Tensors & Operations",
