@@ -45,7 +45,8 @@
               "foundations/tensors/broadcasting",
               "foundations/tensors/views-strides",
               "foundations/tensors/named-tensors",
-              "foundations/tensors/tensor-attributes"
+              "foundations/tensors/tensor-attributes",
+              "foundations/tensors/notes"
             ]
           },
           {

@@ -1,0 +1,96 @@
+---
+title: Notes
+---
+
+
+### `torch.tensor` , `torch.Tensor`
+- tensors are specific datatype / class / list/ matrix call it as u want to store any numbers / data we will be dealing with while building our own ai model 
+- but they are customized mainly under the hood to be workable on cuda 
+- all tensors comes from Tensor class so generally u can create a tensor by calling this class but not preferable as to create a tensor we ned to define the dtype of it 
+- `torch.tensor` is a factoroy function to create `torch.Tensor` and is preferable on it and it will raise error if no data given unlike using Tensor class
+- `torch.as_tensor(data)` doesnt create copy and share the gradients with the data (in case data is tensor not array / numpy)
+- `x.detach()` Returns a new Tensor, detached from the current graph. doesnt copy but share memory and device and remove the gradient history 
+- `x.clone()` deep copy of the tensor 
+
+### `detach().clone()` vs `torch.tensor(data)`
+
+| Feature                  | `detach().clone()` | `torch.tensor(data)` |
+| ------------------------ | ------------------ | -------------------- |
+| Creates copy             | ✅ Yes              | ✅ Yes                |
+| Keeps device             | ✅ Yes              | ❌ Defaults to CPU    |
+| Keeps dtype              | ✅ Yes              | ⚠️ May infer         |
+| Removes grad             | ✅ Yes              | ✅ Yes                |
+| Preserves layout/strides | ✅ Yes              | ❌ Reconstructs       |
+
+
+### Differet ways to create Tensor
+- torch.zeros, torch.ones > auto create a tensor like / filled with zeros or ones 
+- u have to know how to formulate this `torch.ones_like(torch.zeros(3,4,3,2))` with pen and paper and try to imagine the dimensions
+- `torch.arange`, `torch.linespace`
+- `torch.eye` Returns a 2-D tensor with ones on the diagonal and zeros elsewhere.
+- `torch.empty` Allocates memory for a tensor of a specific shape but does not initialize it with any specific values. Returns a tensor filled with uninitialized data.  Use empty() only if you will immediately fill the tensor. and needs faster response than zeros or ones
+- `torch.full` custom version of ones and zeros but custom numbers >> `torch.full((3,3),5.4)`
+- `torch.asarray` Introduced as a more powerful version of `as_tensor`, it provides specific parameters (like copy and requires_grad) to explicitly define whether memory should be shared or copied.
+
+| Function         | Primary Purpose          | Memory Behavior                     | Key Feature                                                  |
+| ---------------- | ------------------------ | ----------------------------------- | ------------------------------------------------------------ |
+| `torch.tensor`   | General construction     | Always copies the data.             | Creates a new "leaf" tensor with no autograd history.        |
+| `torch.as_tensor` | Efficient conversion     | Shares memory whenever possible.    | Preserves autograd history if the input is already a tensor. |
+| `torch.asarray`  | Advanced interoperability | Highly configurable memory sharing. | Offers explicit control over data copying and autograd.      |
+
+
+
+# TODOS 
+"""
+- torch.cat, torch.stack, torch.split, torch.chunk
+- torch.reshape, torch.transpose, torch.permute
+- torch.squeeze, torch.unsqueeze, torch.flatten
+- torch.index_select, torch.masked_select, torch.gather, torch.scatter
+- Boolean indexing, advanced indexing, slicing
+- torch.where, torch.nonzero
+
+- Broadcasting, How PyTorch automatically expands tensors for operations
+- Tensor Operations, Mathematical operations, reshaping, concatenation
+- Views strides
+- Named tensors
+- Build custom tensor implementation to understand CUDA integration
+- Optimize tensor operations between CPU and GPU
+- Study memory management and performance optimization
+
+- Master torch.autograd for gradient computation, requires_grad, backward(), grad, and the basics of automatic differentiation.
+- Understand computational graphs and backpropagation, Understanding the dynamic computation graph
+- Custom Autograd Functions, torch.autograd.Function for custom differentiable operations.
+- Gradients Explained, retain_grad, leaf tensors, gradient accumulation deep dive
+- Build a custom autograd engine from scratch
+- Forward mode
+- Optimize gradient computation for complex models
+- https://github.com/pytorch/pytorch/blob/main/torch/_tensor.py#L110
+"""
+
+# Videos
+"""
+- https://www.youtube.com/watch?v=l-OLgbdZ3kk
+- https://www.youtube.com/watch?v=ceFFEmkxTLg
+- https://www.youtube.com/watch?v=iPj9D9LgK2A
+- https://www.youtube.com/watch?v=Dykkubb-Qus
+- https://www.youtube.com/watch?v=Dykkubb-Qus
+- https://www.youtube.com/watch?v=ilp3ZHTKPNg
+- https://www.youtube.com/watch?v=pauPCy_s0Ok
+- https://www.youtube.com/watch?v=X5trRLX7PQY
+- https://www.youtube.com/watch?v=iV-EMA5g288&list=PLgtmMKe4spCMzkiVa4-eSHVk-N4SC8r9K
+- https://www.youtube.com/watch?v=9qOaII_PzGY
+- https://www.youtube.com/watch?v=1WPJdAW-sFo
+- https://www.youtube.com/watch?v=SXnHqFGLNxA
+- https://www.youtube.com/watch?v=KHVR587oW8I
+- https://www.youtube.com/watch?v=KZeIEiBrT_w
+"""
+### pytorch docs Guide
+- https://docs.pytorch.org/tutorials/beginner/introyt/introyt_index.html
+
+### Papers / Thesis
+- 1974, Beyond Regression: New Tools for Prediction and Analysis in the Behavioral Sciences – Paul J. Werbos
+- 1986, Learning Representations by Back-Propagating Errors- David Rumelhart
+- https://www.mdpi.com/2227-7390/11/3/628
+
+### More Resources
+- https://www.3blue1brown.com/lessons/neural-networks#title
